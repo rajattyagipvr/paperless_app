@@ -28,7 +28,7 @@ class ScanHandler {
       var scansAmount = await scansDir.list().length;
       print("Amount: $scansAmount");
       statusListeners.first(scansAmount);
-      if (scansAmount == 0) break;
+      if (scansAmount == 0) break;   //rajat
       await handleScan(await scansDir.list().first);
     }
 
@@ -41,9 +41,22 @@ class ScanHandler {
   }
 
   Future<void> scanDocument() async {
-    EdgeDetection.useInternalStorage(true);
+    // EdgeDetection.useInternalStorage(true);
     String imagePath = await EdgeDetection.detectEdge;
-    File(imagePath).rename(scansDir.path + "/" + imagePath.split("/").last);
+    moveFile(File(imagePath),scansDir.path + "/" + imagePath.split("/").last);
+    //File(imagePath).rename(scansDir.path + "/" + imagePath.split("/").last);
     handleScans();
+  }
+}
+
+Future<File> moveFile(File sourceFile, String newPath) async {
+  try {
+    // prefer using rename as it is probably faster
+    return await sourceFile.rename(newPath);
+  } on FileSystemException catch (e) {
+    // if rename fails, copy the source file and then delete it
+    final newFile = await sourceFile.copy(newPath);
+    await sourceFile.delete();
+    return newFile;
   }
 }

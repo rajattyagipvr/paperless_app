@@ -21,6 +21,14 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+
+//rajat
+
+tasks.whenTaskAdded { task ->
+    if (task.name.equals("lint")) {
+        task.enabled = false
+    }
+}
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
@@ -30,9 +38,10 @@ def keystorePropertiesFile = rootProject.file('key.properties')
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
-
+android.ndkVersion  "23.0.7599858"
+//android.defaultConfig.ndkVersion = "23.0.7599858" //"21.1.6352462"
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -44,8 +53,8 @@ android {
 
     defaultConfig {
         applicationId "eu.bauerj.paperless_app"
-        minSdkVersion 18
-        targetSdkVersion 30
+        minSdkVersion 21
+        targetSdkVersion 31
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

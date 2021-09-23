@@ -3,13 +3,13 @@ import 'package:paperless_app/i18n.dart';
 
 EnglishTextDelegate paperlessAssetsPickerTextDelegate() {
   var d = EnglishTextDelegate();
-  d.cancel = 'Cancel'.i18n;
-  d.confirm = 'Confirm'.i18n;
-  d.edit = 'Edit'.i18n;
-  d.loadFailed = 'Failed to load'.i18n;
-  d.original = 'Original'.i18n;
-  d.preview = 'Preview'.i18n;
-  d.select = 'Select'.i18n;
+//  d.cancel = 'Cancel'.i18n;
+//  d.confirm = 'Confirm'.i18n;
+//  d.edit = 'Edit'.i18n;
+//  d.loadFailed = 'Failed to load'.i18n;
+//  d.original = 'Original'.i18n;
+//  d.preview = 'Preview'.i18n;
+//  d.select = 'Select'.i18n;
   return d;
 }
 

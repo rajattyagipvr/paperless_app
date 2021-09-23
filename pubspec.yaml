@@ -24,8 +24,9 @@ dependencies:
     sdk: flutter
   edge_detection:
     git:
-      url: https://github.com/bauerj/edge_detection
-      ref: ec8639fffef3d6d0714b260067f77dd1261b39ed
+      url: https://github.com/sawankumarbundelkhandi/edge_detection
+      #      url: https://github.com/rajattyagipvr/edge_detection
+      ref: master
   cached_network_image: ^3.0.0
   dio: ^4.0.0
   flutter_secure_storage: ^4.1.0
@@ -38,7 +39,7 @@ dependencies:
   receive_sharing_intent: ^1.4.5
   settings_ui: ^0.6.0
   shared_preferences: ">=0.5.7+2 <2.0.0"
-  wechat_assets_picker: ^5.1.0
+  wechat_assets_picker: ^6.1.2 #^5.1.0
   share: ^2.0.1
 
 dev_dependencies:
@@ -51,6 +52,7 @@ dev_dependencies:
 dependency_overrides:
   cached_network_image: any
   flutter_svg: any
+  analyzer: 1.7.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
